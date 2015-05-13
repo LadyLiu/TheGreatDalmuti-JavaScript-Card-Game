@@ -1,0 +1,32 @@
+h1 {
+    font-size: 2em;
+}
+
+.userCard img {
+    padding: 0px;
+    width: 100%;
+}
+
+.no-highlight {
+    border-radius: 10%;
+    border: 1px solid;
+    margin: 3px;
+}
+
+.highlight-ok {
+    border-radius: 10%;
+    border: 2px solid limegreen;
+    margin: 2px;
+}
+
+.highlight-no-match {
+    border-radius: 10%;
+    border: 2px solid red;
+    margin: 2px;
+}
+
+#last-move {
+    max-height: 6.0em;
+    min-height: 0em;
+    overflow:scroll;
+}
