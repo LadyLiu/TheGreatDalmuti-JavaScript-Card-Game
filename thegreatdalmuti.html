@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,47 +6,66 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/dalmuti.css">
 </head>
-<div>
-    <div class="text-center container" id="view">
+<body>
+    <div>
+        <div class="text-center container" id="view">
 
-        <!-- How to Play Modal -->
-        <div class="modal fade" id="how-to-play" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">How to Play</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p><b>Goal:</b> The Great Dalmuti is a game where your goal is to move up in society.  Much like real life, if you start out at the bottom, it's much harder to move up to the top, and if you're at the top, discontents aim to dethrone you.  You do this by running out of cards first.</p>
-                        <p><b>Deck:</b> The game's deck is made of 80 cards.  There are twelve 12s, eleven 11s, ten 10s, and so on down to one 1.  There are also two cards with the value 13 if they are played individually or are wild if matched with other cards.</p>
-                        <p><b>Rounds:</b> Each round is started by a lead.  When you lead, you may play any number of cards that all have the same value.  After the lead plays, you may only play the same number of cards of a lesser value.  For example, if the lead plays three 11s, then you may play three 10s or any value less than 11.  You may not play two 2s nor three 12s.</p>
-                        <p><b>Ranks:</b> Ranks determine your play order.  The Great Dalmuti plays first, then the Lesser Dalmuti, then the Lesser Peon, and finally the Greater Peon.</p>
-                        <p><b>Winning:</b> The game is over when you there are no cards left.  If you run out of cards first, you will become the Great Dalmuti.  Second, you will become the Lesser Dalmuti.  Third, the Lesser Peon.  Fourth, the Greater Peon.  The goal is to move up from where you started or to remain at the top.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            <!-- How to Play Modal -->
+            <div class="modal fade" id="how-to-play" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">How to Play</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p><b>Goal:</b> The Great Dalmuti is a game where your goal is to move up in society.  Much like real life, if you start out at the bottom, it's much harder to move up to the top, and if you're at the top, discontents aim to dethrone you.  You do this by running out of cards first.</p>
+                            <p><b>Deck:</b> The game's deck is made of 80 cards.  There are twelve 12s, eleven 11s, ten 10s, and so on down to one 1.  There are also two cards with the value 13 if they are played individually or are wild if matched with other cards.</p>
+                            <p><b>Rounds:</b> Each round is started by a lead.  When you lead, you may play any number of cards that all have the same value.  After the lead plays, you may only play the same number of cards of a lesser value.  For example, if the lead plays three 11s, then you may play three 10s or any value less than 11.  You may not play two 2s nor three 12s.</p>
+                            <p><b>Ranks:</b> Ranks determine your play order.  The Great Dalmuti plays first, then the Lesser Dalmuti, then the Lesser Peon, and finally the Greater Peon.  Your rank the first game is determined randomly.</p>
+                            <p><b>Winning:</b> The game is over when you there are no cards left.  If you run out of cards first, you will become the Great Dalmuti.  Second, you will become the Lesser Dalmuti.  Third, the Lesser Peon.  Fourth, the Greater Peon.  The goal is to move up from where you started or to remain at the top.</p>
+                            <p><b>Taxes:</b> After the first game, there will be taxes.  The Greater Peon must pay the Great Dalmuti their 2 lowest cards.  The Great Dalmuti, in turn, gives the Greater Peon any 2 cards of their choosing.  The Lesser Peon must pay the Lesser Dalmuti their best card.  The Lesser Dalmuti gives them any one card of their choosing in return.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
+        <h1>The Great Dalmuti</h1>
+            <button class="btn btn-success" id="taxes">Taxes</button>
+            <button class="btn btn-success" id="play-cards">Play Cards</button>
+            <button class="btn btn-primary" id="deselect-all">Deselect All</button>
+            <button class="btn btn-danger" id="pass">Pass</button>
+
+            <div class="bg-warning" id="message"></div>
+            <div class="bg-info" id="last-move"></div>
+
+            <!--a href="thegreatdalmuti.html" onclick="javascript:void window.open('file:rules.html','1430946335203','width=400,height=300,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">Pop-up Window</a-->
+
         </div>
-    <h1>The Great Dalmuti</h1>
-
-        <button class="btn btn-success" id="play-cards">Play Cards</button>
-        <button class="btn btn-primary" id="deselect-all">Deselect All</button>
-        <button class="btn btn-danger" id="pass">Pass</button>
-        <button class="btn btn-info" id="taxes">Taxes</button>
-        <div class="bg-warning" id="message"></div>
-        <div class="bg-info" id="last-move"></div>
-
-        <!--a href="thegreatdalmuti.html" onclick="javascript:void window.open('file:rules.html','1430946335203','width=400,height=300,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">Pop-up Window</a-->
-
-</div>
+    </div>
     <div class="text-center">
         <button class="btn btn-warning" data-toggle="modal" data-target="#how-to-play">How to Play</button>
     </div>
-    <script src="js/jquery-2.1.4.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/thegreatdalmuti.js"></script>
+
+    <!-------------LIBRARIES-----------!/-->
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/tgd/helper.js"></script>
+
+    <!--------------Models & Game Objects--!/-->
+    <!--script src="js/tgd/thegreatdalmuti.js"></script-->
+    <script src="js/tgd/cardsDeck.js"></script>
+    <script src="js/tgd/players.js"></script>
+
+    <!--------------VC------------------!/-->
+    <script src="js/tgd/controller.js"></script>
+    <script src="js/tgd/view.js"></script>
+
+    <!-------Functional Objects!/----------->
+    <script src="js/tgd/AI.js"></script>
+    <script src="js/tgd/taxes.js"></script>
+    <script src="js/tgd/gameCycle.js"></script>
 </body>
 </html>
