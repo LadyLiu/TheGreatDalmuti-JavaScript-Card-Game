@@ -63,7 +63,7 @@ AI = {
         greatDalmuti.push(greaterPeon.slice(0, 2)[1]);
 
         if (userRank === 0) {
-            view.lastMoveUpdate("<b>The Greater Peon</b> paid you a " + greaterPeon.slice(0, 2)[0] + " and " + greaterPeon.slice(0, 2)[1] + " for taxes");
+            view.lastMoveUpdate("<b>The Greater Peon</b> paid you a " + greaterPeon.slice(0, 2).join(" and a ") + " for taxes");
         }
 
         greaterPeon.splice(0, 2);
@@ -79,78 +79,50 @@ AI = {
         lesserPeon.splice(0, 1);
 
 
-        /*for (var i = 1; i < 4; i++) {
-         var j = i + 1;
-         if (greatDalmuti[gdLength - i] !== wildVal) {
-         greaterPeon.push(greatDalmuti.slice(gdLength - j, gdLength)[0]);
-         greaterPeon.push(greatDalmuti.slice(gdLength - j, gdLength)[1]);
-         if (userRank === numPlayers - 1) {
-         view.lastMoveUpdate("<b>The Great Dalmuti</b> gave you a " + greatDalmuti.slice(gdLength - j, gdLength)[0] + " and a " + greatDalmuti.slice(gdLength - j, gdLength)[1] + " out of the kindness of her heart");
-         }
-         greatDalmuti.splice(gdLength - j, 2);
-         if (userRank === numPlayers - 1) {
-         view.lastMoveUpdate("<b>The Great Dalmuti</b> gave you a " + greatDalmuti.slice(gdLength - j, gdLength)[0] + " and a " + greatDalmuti.slice(gdLength - j, gdLength)[1] + " out of the kindness of her heart");
-         }
-
-         }
-         }*/
-
         //greatDalmuti giving the greaterPeon cards - 2 highest value that aren't wilds - need to refactor
         if (userRank != 0) {
+
             if (greatDalmuti[gdLength - 1] !== wildVal) {
-                greaterPeon.push(greatDalmuti.slice(gdLength - 2, gdLength)[0]);
-                greaterPeon.push(greatDalmuti.slice(gdLength - 2, gdLength)[1]);
-                if (userRank === numPlayers - 1) {
-                    view.lastMoveUpdate("<b>The Great Dalmuti</b> gave you a " + greatDalmuti.slice(gdLength - 2, gdLength)[0] + " and a " + greatDalmuti.slice(gdLength - 2, gdLength)[1] + " out of the kindness of her heart");
-                }
-                greatDalmuti.splice(gdLength - 3, 2);
+                AI.dalmutiTaxesPush(0, greaterPeon, greatDalmuti, gdLength, 2);
+
             } else if (greatDalmuti[gdLength - 2] !== wildVal) {
-                greaterPeon.push(greatDalmuti.slice(gdLength - 3, gdLength)[0]);
-                greaterPeon.push(greatDalmuti.slice(gdLength - 3, gdLength)[1]);
-                if (userRank === numPlayers - 1) {
-                    view.lastMoveUpdate("<b>The Great Dalmuti</b> gave you a " + greatDalmuti.slice(gdLength - 3, gdLength)[0] + " and a " + greatDalmuti.slice(gdLength - 3, gdLength)[1] + " out of the kindness of her heart");
-                }
-                greatDalmuti.splice(gdLength - 3, 2);
+                AI.dalmutiTaxesPush(0, greaterPeon, greatDalmuti, gdLength, 3);
 
             } else {
-                greaterPeon.push(greatDalmuti.slice(gdLength - 4, gdLength)[0]);
-                greaterPeon.push(greatDalmuti.slice(gdLength - 4, gdLength)[1]);
-                if (userRank === numPlayers - 1) {
-                    view.lastMoveUpdate("<b>The Great Dalmuti</b> gave you a " + greatDalmuti.slice(gdLength - 4, gdLength)[0] + " and a " + greatDalmuti.slice(gdLength - 4, gdLength)[1] + " out of the kindness of her heart");
-                }
-                greatDalmuti.splice(gdLength - 4, 2);
+                AI.dalmutiTaxesPush(0, greaterPeon, greatDalmuti, gdLength, 4);
             }
         } else {
             greaterPeon.push(userTaxes[0], userTaxes[1]);
-            cardsDeck.updatePlayerDeck(userTaxes);
+            cardsDeck.updatePlayerDeck(userTaxes, userRank);
         }
 
         //lesserDalmuti giving lesserPeon cards - 1 highest value thats not a wild
         if (userRank != 1) {
             if (lesserDalmuti[ldLength - 1] !== wildVal) {
-                lesserPeon.push(lesserDalmuti.slice(ldLength - 1, ldLength)[0]);
-                if (userRank === numPlayers - 2) {
-                    view.lastMoveUpdate("<b>The Lesser Dalmuti</b> gave you a " + lesserDalmuti.slice(ldLength - 1, ldLength)[0] + " out of the kindness of her heart");
-                }
-                lesserDalmuti.splice(ldLength - 1, 1);
+                AI.dalmutiTaxesPush(1, lesserPeon, lesserDalmuti, ldLength, 1);
 
             } else if (lesserDalmuti[ldLength - 2] !== wildVal) {
-                lesserPeon.push(lesserDalmuti.slice(ldLength - 2, ldLength)[0]);
-                if (userRank === numPlayers - 2) {
-                    view.lastMoveUpdate("<b>The Lesser Dalmuti</b> gave you a " + lesserDalmuti.slice(ldLength - 2, ldLength)[0] + " out of the kindness of her heart");
-                }
-                lesserDalmuti.splice(ldLength - 2, 1);
-
+                AI.dalmutiTaxesPush(1, lesserPeon, lesserDalmuti, ldLength, 2);
             } else {
-                lesserPeon.push(lesserDalmuti.slice(ldLength - 3, ldLength)[0]);
-                if (userRank === numPlayers - 2) {
-                    view.lastMoveUpdate("<b>The Lesser Dalmuti</b> gave you a " + lesserDalmuti.slice(ldLength - 3, ldLength)[0] + " out of the kindness of her heart");
-                }
-                lesserDalmuti.splice(ldLength - 3, 1);
+                AI.dalmutiTaxesPush(1, lesserPeon, lesserDalmuti, ldLength, 3);
             }
         } else {
             lesserPeon.push(userTaxes[0]);
-            cardsDeck.updatePlayerDeck(userTaxes);
+            cardsDeck.updatePlayerDeck(userTaxes, userRank);
         }
+    },
+    dalmutiTaxesPush: function(rank, receiverArray, giverArray, giverLength, startPt) {
+        var numPushes = 2 - rank;
+        var receivedArray = giverArray.slice(giverLength - startPt, giverLength);
+
+        for(var i = 0; i < numPushes; i++) {
+            receiverArray.push(giverArray.slice(giverLength - startPt, giverLength)[i]);
+        }
+
+        if(players.userRank === Math.abs(players.numPlayers - 1 - rank)) {
+                view.lastMoveUpdate("<b>" + players.getPlayerTitle[rank] + "</b> gave you a " + receivedArray.join(" and a ") +  " out of the kindness of her heart");
+        }
+
+        giverArray.splice(giverLength - startPt, numPushes);
     }
 };

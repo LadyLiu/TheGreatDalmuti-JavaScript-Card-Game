@@ -79,9 +79,9 @@ view = {
 
         //Reports # of wilds played.
         if(playArray.length > 2 && playArray.indexOf(wildVal) === playArray.length-2) {
-            var message = "Move " + rounds + ": " + player + " played <b>" + numCards + "</b> of <b><i>#" + cardVal + "</i></b>. 2 were wild cards." ;
+            var message = "Move " + rounds + ": " + player + " played <b>" + numCards + "</b> of <b><i>#" + cardVal + "</i></b>. 2 were wild cards" ;
         } else if(playArray.length > 1 && playArray.indexOf(wildVal) === playArray.length-1){
-            var message = "Move " + rounds + ": " + player + " played <b>" + numCards + "</b> of <b><i>#" + cardVal + "</i></b>. 1 was a wild card." ;
+            var message = "Move " + rounds + ": " + player + " played <b>" + numCards + "</b> of <b><i>#" + cardVal + "</i></b>. 1 was a wild card" ;
         } else {
             var message = "Move " + rounds + ": " + player + " played <b>" + numCards + "</b> of <b><i>#" + cardVal + "</i></b>";
         }

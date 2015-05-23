@@ -70,8 +70,13 @@ cardsDeck = {
         }
     },
     //Updates based on played cards array.
-    updatePlayerDeck: function(playArray) {
-        var deck = cardsDeck.playerDecks[players.getPlayerNum(gameCycle.rounds)];
+    updatePlayerDeck: function(playArray, rank) {
+        if(typeof(rank) === "number") {
+            var deck = cardsDeck.playerDecks[rank];
+        } else {
+            var deck = cardsDeck.playerDecks[players.getPlayerNum(gameCycle.rounds)];
+        }
+
         for(var i = 0; i < playArray.length; i++) {
             var index = deck.indexOf(playArray[i]);
             deck.splice(index, 1);

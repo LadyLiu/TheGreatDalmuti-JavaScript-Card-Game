@@ -90,7 +90,6 @@ function init() {
     window.onresize = view.responsiveCheck;
     controller.buttonEvents();
     controller.scrollPlayHistory();
-
 }
 
 /*
@@ -103,3 +102,4 @@ function taxTest() {
 
 }
 */
+
