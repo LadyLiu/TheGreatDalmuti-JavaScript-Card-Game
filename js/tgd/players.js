@@ -7,7 +7,7 @@ players = {
     //Send model.rounds -1 for current player - send model.rounds for next player. (rounds start at 1, arrays index starts at 0.)
 
     getPlayerTitle: function(rank) {
-        return players.playerTitles[players.getPlayerNum(rank)];
+            return players.playerTitles[players.getPlayerNum(rank)];
     },
 
     getPlayerNum: function(rounds) {

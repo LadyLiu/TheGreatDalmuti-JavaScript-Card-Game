@@ -2,10 +2,30 @@ h1 {
     font-size: 2em;
 }
 
+.col-7 {
+    position: relative;
+    width: 14%;
+    display: inline-flex;
+}
+
+.col-6 {
+    position: relative;
+    width: 16.66%;
+    display: inline-flex;
+}
+
+.col-4 {
+    position: relative;
+    width: 25%;
+    display: inline-flex;
+}
+
 .userCard img {
     padding: 0px;
     width: 100%;
+    max-height: 100px;
 }
+
 
 .no-highlight {
     border-radius: 10%;
@@ -30,3 +50,9 @@ h1 {
     min-height: 0em;
     overflow:scroll;
 }
+
+#how-to-play {
+    clear: left;
+}
+
+

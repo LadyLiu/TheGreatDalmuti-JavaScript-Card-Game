@@ -10,9 +10,9 @@ view = {
             //Generates cards with card listed inside - width based on screen size
             var firstInnerHTML = '<div class="';
             var secondInnerHTML = ' carddiv" id="' + i + '">' + '<img class="userCard no-highlight" src="images/cards/card' + userDeck[i] + '.jpg">' + '</div>';
-            if(window.innerWidth >= 992) {
-                view.innerHTML += firstInnerHTML + 'col-md-1' + secondInnerHTML;
-            } else if(window.innerWidth < 992 && window.innerWidth >= 500) {
+            if(window.innerWidth >= 850) {
+                view.innerHTML += firstInnerHTML + 'col-xs-1' + secondInnerHTML;
+            } else if(window.innerWidth < 850 && window.innerWidth >= 450) {
                 view.innerHTML += firstInnerHTML + 'col-xs-2' + secondInnerHTML;
             } else {
                 view.innerHTML += firstInnerHTML + 'col-xs-3' + secondInnerHTML;
@@ -61,11 +61,11 @@ view = {
     },
     //Adjusts # of cards displayed per row based on window width
     responsiveCheck: function() {
-        if (window.innerWidth >= 992) {
-            helper.classChange("carddiv", "col-md-1 carddiv");
-        } else if (window.innerWidth < 992 && window.innerWidth >= 500) {
+        if (window.innerWidth >= 850) {
+            helper.classChange("carddiv", "col-xs-1 carddiv");
+        } else if (window.innerWidth < 850 && window.innerWidth >= 450) {
             helper.classChange("carddiv", "col-xs-2 carddiv");
-        } else if (window.innerWidth < 500) {
+        } else if (window.innerWidth < 450) {
             helper.classChange("carddiv", "col-xs-3 carddiv");
         }
     },
@@ -120,6 +120,7 @@ view = {
                     //removes containing div class so cards will relocate & card itself from player's view
                     $(".highlight-ok").parent().remove();
                     $(".highlight-ok").remove();
+
 
                     gameCycle.checkGameOver(deck);
                     controller.checkTurn();

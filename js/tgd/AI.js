@@ -120,7 +120,7 @@ AI = {
         }
 
         if(players.userRank === Math.abs(players.numPlayers - 1 - rank)) {
-                view.lastMoveUpdate("<b>" + players.getPlayerTitle[rank] + "</b> gave you a " + receivedArray.join(" and a ") +  " out of the kindness of her heart");
+                view.lastMoveUpdate("<b>" + players.playerTitles[rank] + "</b> gave you a " + receivedArray.join(" and a ") +  " out of the kindness of her heart");
         }
 
         giverArray.splice(giverLength - startPt, numPushes);

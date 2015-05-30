@@ -13,7 +13,7 @@ cardsDeck = {
                 deck.push(i);
             }
         }
-        deck.push(cardsDeck.highestCard+1, cardsDeck.highestCard+1); //add 2 jokers/wild cards/13s
+        deck.push(highestCard+1, highestCard+1); //add 2 jokers/wild cards/13s
         return deck;
     },
     //Shuffle! Based on the Futurama brain-shuffling episode

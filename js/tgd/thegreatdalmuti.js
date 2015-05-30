@@ -32,7 +32,8 @@ AI card counting
 
 Need to refactor.
 5/22/15: Did some refactoring to help self locate things in code.
-        Added taxes!  The grestest of additions!
+        Added taxes!  The greastest of additions!
+5/30/15: Fixed a bug in taxes.  Made version compatible with my homepage visually.
 
 */
 

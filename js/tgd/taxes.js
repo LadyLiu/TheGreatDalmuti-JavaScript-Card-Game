@@ -123,8 +123,26 @@ taxes = {
         $("#taxes").hide();
         $("#play-cards").show();
 
-
     }
+/*
+    revolution: function() {
+        var decks = cardsDeck.playerDecks;
+        var numPlayers = players.numPlayers;
+        var userRank = players.userRank;
+
+        for (var i = 2; i < numPlayers; i++) {
+            var length = decks[i].length;
+            var deck = decks[i];
+
+            if (deck[length-1] === cardsDeck.highestCard + 1 && deck[length-2] === cardsDeck.highestCard + 1) {
+                if(i === userRank) {
+                    $("#revolution").show();
+                }
+                view.lastMoveUpdate(players.getPlayerTitle(i) + " has called revolution. There will be no taxes this round.");
+            break;
+            }
+        }
+    } */
 };
 /*
  */
