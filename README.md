@@ -12,34 +12,32 @@ uneven amount.
 + Game setup per above
 + Gameplay
 + Wild Cards
++ Taxes after first round
 + View
 + Simple AI - always plays the next highest down card (even when saving
 it may be more advantageous)
++ userRank random for first game
 + userRank based on previous play victory
 + Cards
 + Player turn indicator.
 + Delayed card plays on feed to simulate actual turn taking
 + Gameover
 + Card counting array for AI (unused)
-+ Player trying to pass or play cards while it's the AI's turn will cause them to receive an error message that it's not their turn (prevents multiple passes unintentionally due to impatience).
++ Player trying to play cards while it's the AI's turn will cause them to receive an error message that it's not their turn (prevents multiple passes unintentionally due to impatience).
 
 ###Not yet implemented:
 + AI card counting
 + AI using Wild Cards
-+ Taxes (no taxes first playthrough)
 + AI no longer playing once out of cards & announcing AI rank.
 + Revolution (no taxes if anyone but the greater peon has 2 wilds)
 + Greater revolution (Everyone swaps ranks - greater peon = great
 dalmuti, lesser peon = lesser dalmuti)
-+ Select userDeck randomly if first game
 + UI changes for desktop version so you can pretend the robots playing
 are people too even though currently the robot is one block of code.
 + Make prettier.
 
 ###Possible depending on attention span:
 + Multiplayer
-
-###Need to refactor.
 
 ###Dependencies:
 + jQuery 2-1-4
